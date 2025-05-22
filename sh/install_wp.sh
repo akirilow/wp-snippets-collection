@@ -24,7 +24,7 @@ if [ -z "$admin_user" ] || [ -z "$admin_password" ] || [ -z "$admin_email" ]; th
 fi
 
 # Define the base directory where the folder should be created
-# Beispielpfad: Passe diesen ggf. an dein System an!
+# Example path: Adjust this to your system if necessary!
 BASE_DIR="$HOME/ddev"
 
 # Build the full path to the folder
