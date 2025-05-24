@@ -4,6 +4,10 @@
 
 - Added acf_gallery.php to acf/ directory for ACF gallery functionality
 
+### Changed
+
+- Updated README.md to include version and document acf/ directory
+
 ## [0.1.0] - 2025-05-22
 
 ### Added
