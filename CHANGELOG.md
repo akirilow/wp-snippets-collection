@@ -1,4 +1,10 @@
-## [0.1.0] - 2025-05-22 (MANTIS-31736)
+## [0.2.0] - 2025-05-24
+
+### Added
+
+- Added acf_gallery.php to acf/ directory for ACF gallery functionality
+
+## [0.1.0] - 2025-05-22
 
 ### Added
 
