@@ -24,8 +24,7 @@ if [ -z "$admin_user" ] || [ -z "$admin_password" ] || [ -z "$admin_email" ]; th
 fi
 
 # Define the base directory where the folder should be created
-# Example path: Adjust this to your system if necessary!
-BASE_DIR="$HOME/ddev"
+BASE_DIR="/Users/andy/ddev"
 
 # Build the full path to the folder
 TARGET_DIR="$BASE_DIR/$folder_name"
@@ -61,6 +60,7 @@ ddev start
 echo "Downloading WordPress core files..."
 ddev wp core download --locale=de_DE --version=latest
 
+
 # Extract primary URL from .ddev/config.yaml
 DDEV_PRIMARY_URL=$(grep 'primary_hostname:' .ddev/config.yaml | awk '{print $2}')
 DDEV_PRIMARY_URL="https://${DDEV_PRIMARY_URL}" 
@@ -79,6 +79,60 @@ ddev wp core install \
     --admin_user="$admin_user" \
     --admin_password="$admin_password" \
     --admin_email="$admin_email"
+# ===================================================
+# WordPress Tweaks and Cleanup
+# ===================================================
+echo ""
+echo "Applying WordPress tweaks and cleanup:"
+
+# 1. Disable admin bar for user with ID 1
+echo "Disabling admin bar for user (ID: 1)..."
+ddev wp user meta update 1 show_admin_bar_front false
+
+# 2. Delete all inactive themes
+echo "Deleting inactive themes..."
+ddev wp theme delete $(ddev wp theme list --status=inactive --field=name)
+
+# 3. Remove all inactive plugins
+echo "Removing all inactive plugins..."
+ddev wp plugin delete $(ddev wp plugin list --status=inactive --field=name)
+
+# 4. Delete sample post (if exists)
+echo "Deleting sample post (if any)..."
+ddev wp post delete $(ddev wp post list --post_type=post --posts_per_page=1 --post_status=publish --format=ids) --force
+
+# 5. Delete sample page named 'beispiel-seite' (if exists)
+echo "Deleting sample page 'beispiel-seite' (if any)..."
+ddev wp post delete $(ddev wp post list --post_type=page --name=beispiel-seite --format=ids) --force
+
+# 6. Create Home and News pages
+echo "Creating 'Startseite' and 'News' pages..."
+ddev wp post create --post_type=page --post_title='Startseite' --post_status=publish
+ddev wp post create --post_type=page --post_title='News' --post_status=publish
+
+# 7. Set reading options
+echo "Setting reading options..."
+ddev wp option update page_on_front $(ddev wp post list --post_type=page --name=startseite --field=ID)
+ddev wp option update page_for_posts $(ddev wp post list --post_type=page --name=news --field=ID)
+ddev wp option update show_on_front 'page'
+
+# 8. Adjust discussion settings
+echo "Adjusting discussion settings..."
+ddev wp option update default_pingback_flag 'closed'
+ddev wp option update default_ping_status 'closed'
+ddev wp option update default_comment_status 'closed'
+ddev wp option update comment_moderation 1
+ddev wp option update comment_whitelist 1
+ddev wp option update show_avatars 0
+
+# 9. Set permalink structure and custom category/tag base
+echo "Setting permalink structure and custom category/tag base..."
+ddev wp rewrite structure '/%postname%/'
+ddev wp option update category_base 'kategorie'
+ddev wp option update tag_base 'tag'
+ddev wp rewrite flush
+
+echo "WordPress tweaks and cleanup completed!"
 
 # Display success message with login details and URL
 echo ""
@@ -93,4 +147,4 @@ echo "--------------------------------------------------------------------------
 sleep 5
 
 echo "Opening WordPress in your browser..."
-ddev launch
+ddev launch 

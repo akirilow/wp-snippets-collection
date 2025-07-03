@@ -1,6 +1,6 @@
 # WordPress Code Snippets & Shell Scripts
 
-**Version:** 0.2.0
+**Version:** 0.3.0
 
 A collection of useful Advanced Custom Fields (ACF) PHP snippets and shell scripts for WordPress projects. This repository serves as a central place for reusable solutions and automation around WordPress.
 
