@@ -1,13 +1,29 @@
 # WordPress Code Snippets & Shell Scripts
 
-**Version:** 0.3.0
+**Version:** 0.4.0
 
 A collection of useful Advanced Custom Fields (ACF) PHP snippets and shell scripts for WordPress projects. This repository serves as a central place for reusable solutions and automation around WordPress.
 
 ## Contents
 
-- **acf/**: Advanced Custom Fields (ACF) related PHP snippets (e.g., gallery, custom fields)
-- **sh/**: Shell scripts for common tasks (e.g., backups, updates)
+- **acf/**: Advanced Custom Fields (ACF) related PHP snippets (e.g., gallery, repeater fields, custom fields)
+- **sh/**: Shell scripts for common tasks (e.g., WordPress installation, backups, updates)
+
+## Examples
+
+### ACF Snippets
+
+- `acf_repeater.php` - Comprehensive examples for repeater field loops, nested repeaters, and error handling
+- `acf_gallery.php` - Gallery field implementation with image handling
+
+### Shell Scripts
+
+- `install_wp.sh` - Automated WordPress installation with DDEV and German optimization
+
+## Requirements
+
+- WordPress with Advanced Custom Fields (ACF) plugin for ACF snippets
+- DDEV for shell scripts (macOS)
 
 ## Usage
 
