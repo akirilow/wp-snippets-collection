@@ -1,3 +1,20 @@
+## [0.4.0] - 2025-07-04
+
+### Added
+
+- ACF Repeater field examples with comprehensive usage patterns
+- Basic repeater field loops with proper error handling
+- Image sub-field handling with URL and alt text support
+- Nested repeater examples for complex data structures
+- Multiple context examples (posts, options pages, taxonomy terms)
+- Security best practices with proper output escaping
+- .gitignore file to exclude VS Code and system files
+
+### Improved
+
+- Repository structure with better file organization
+- Code documentation with detailed inline comments
+
 ## [0.3.0] - 2025-07-03
 
 ### Added
