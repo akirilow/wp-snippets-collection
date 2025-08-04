@@ -1,12 +1,13 @@
 # WordPress Code Snippets & Shell Scripts
 
-**Version:** 0.4.0
+**Version:** 0.5.0
 
-A collection of useful Advanced Custom Fields (ACF) PHP snippets and shell scripts for WordPress projects. This repository serves as a central place for reusable solutions and automation around WordPress.
+A collection of useful Advanced Custom Fields (ACF), Contact Form 7 (CF7) PHP snippets and shell scripts for WordPress projects. This repository serves as a central place for reusable solutions and automation around WordPress.
 
 ## Contents
 
 - **acf/**: Advanced Custom Fields (ACF) related PHP snippets (e.g., gallery, repeater fields, custom fields)
+- **cf7/**: Contact Form 7 related PHP snippets (e.g., dynamic select fields)
 - **sh/**: Shell scripts for common tasks (e.g., WordPress installation, backups, updates)
 
 ## Examples
@@ -15,6 +16,10 @@ A collection of useful Advanced Custom Fields (ACF) PHP snippets and shell scrip
 
 - `acf_repeater.php` - Comprehensive examples for repeater field loops, nested repeaters, and error handling
 - `acf_gallery.php` - Gallery field implementation with image handling
+
+### CF7 Snippets
+
+- `cf7-dynamic-job-select.php` - Dynamically populate a select field with all job titles and preselect current job
 
 ### Shell Scripts
 

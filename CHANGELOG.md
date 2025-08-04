@@ -1,3 +1,15 @@
+## [0.5.0] - 2025-08-04
+
+### Added
+
+- Contact Form 7 snippet to dynamically populate select field with all job titles and preselect current job (`cf7/cf7-dynamic-job-select.php`)
+- Usage instructions in code comments (English)
+- New `cf7/` directory for Contact Form 7 related snippets
+
+### Improved
+
+- Project structure for better separation of snippet types
+
 ## [0.4.0] - 2025-07-04
 
 ### Added
